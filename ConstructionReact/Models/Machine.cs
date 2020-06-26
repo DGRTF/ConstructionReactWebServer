@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ConstructionReact.Models
@@ -12,7 +13,9 @@ namespace ConstructionReact.Models
 
         public int CreateYear { get; set; }
 
-        public int RoomId { get; set; }      // внешний ключ
+        public int RoomId { get; set; } 
+
+        [JsonIgnore]
         public Room Room { get; set; }
     }
 }

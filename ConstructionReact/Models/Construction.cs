@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace ConstructionReact.Models
 {
@@ -12,6 +10,7 @@ namespace ConstructionReact.Models
 
         public string Address { get; set; }
 
+        [JsonIgnore]
         public List<Room> Rooms { get; set; }
     }
 }

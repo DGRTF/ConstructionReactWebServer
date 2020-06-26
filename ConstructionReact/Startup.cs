@@ -40,17 +40,18 @@ namespace ConstructionReact
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Warehouse}/{action=GetConstruction}/{id?}");
+                    pattern: "{controller=Warehouse}/{action=GetConstruction}/{skip?}");
             });
         }
     }

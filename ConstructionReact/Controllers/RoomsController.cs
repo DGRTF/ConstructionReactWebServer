@@ -16,7 +16,7 @@ namespace ConstructionReact.Controllers
         }
 
         //Rooms
-        public JsonResult GetRoomsInConstruction(ParemetersRoom paremetersRoom)
+        public JsonResult GetRoomsInConstruction(ParemetersRoom paremetersRoom, ParemetersRange paremetersRange)
         {
             var rooms = ApplicationContext.Rooms.AsNoTracking().Where(x => x.ConstructionId == paremetersRoom.ConstructionId).Include(x => x.Machines)
                 .Select(x => new
@@ -26,12 +26,12 @@ namespace ConstructionReact.Controllers
                     floor = x.Floor,
                     constructionId = x.ConstructionId,
                     haveMachine = x.Machines.Any()
-                });
+                }).Skip(paremetersRange.Skip).Take(paremetersRange.Take);
 
             return Json(rooms);
         }
 
-        public JsonResult AddRoomInConstruction(ParemetersRoom paremetersRoom)
+        public JsonResult AddRoomInConstruction(ParemetersRoom paremetersRoom, ParemetersRange paremetersRange)
         {
             Room room = new Room
             {
@@ -43,10 +43,10 @@ namespace ConstructionReact.Controllers
             ApplicationContext.Rooms.Add(room);
             ApplicationContext.SaveChanges();
 
-            return GetRoomsInConstruction(paremetersRoom);
+            return GetRoomsInConstruction(paremetersRoom, paremetersRange);
         }
 
-        public JsonResult DeleteRoomInConstruction(ParemetersRoom paremetersRoom)
+        public JsonResult DeleteRoomInConstruction(ParemetersRoom paremetersRoom, ParemetersRange paremetersRange)
         {
             Room room = ApplicationContext.Rooms.AsNoTracking().FirstOrDefault(x => x.Id == paremetersRoom.RoomId);
             if (room != null && room.Id == paremetersRoom.RoomId)
@@ -55,10 +55,10 @@ namespace ConstructionReact.Controllers
                 ApplicationContext.SaveChanges();
             }
 
-            return GetRoomsInConstruction(paremetersRoom);
+            return GetRoomsInConstruction(paremetersRoom, paremetersRange);
         }
 
-        public JsonResult EditRoomInConstruction(ParemetersRoom paremetersRoom)
+        public JsonResult EditRoomInConstruction(ParemetersRoom paremetersRoom, ParemetersRange paremetersRange)
         {
             Room room = ApplicationContext.Rooms.AsNoTracking().FirstOrDefault(x => x.Id == paremetersRoom.RoomId);
             if (room != null && room.Id == paremetersRoom.RoomId)
@@ -69,13 +69,7 @@ namespace ConstructionReact.Controllers
                 ApplicationContext.SaveChanges();
             }
 
-            return GetRoomsInConstruction(paremetersRoom);
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return GetRoomsInConstruction(paremetersRoom, paremetersRange);
         }
     }
 }

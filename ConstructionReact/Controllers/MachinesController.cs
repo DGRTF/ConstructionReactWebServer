@@ -75,7 +75,7 @@ namespace ConstructionReact.Controllers
             return Json(machinesShort);
         }
 
-        public JsonResult EditMachinesInConstruction(int constructionId, ParemetersMachine paremetersMachine, ParemetersRange paremetersRange)
+        public JsonResult EditMachineInConstruction(int constructionId, ParemetersMachine paremetersMachine, ParemetersRange paremetersRange)
         {
             Machine machine = ApplicationContext.Machines.FirstOrDefault(x => x.Id == paremetersMachine.MachineId);
             if (machine != null && machine.Id == paremetersMachine.MachineId)

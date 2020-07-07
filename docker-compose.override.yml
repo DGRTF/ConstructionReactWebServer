@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  constructionreact:
+    # container_name: constructionreact
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    # networks:
+    #   - construction
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  db:
+    # container_name: db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports: 
+      - "5432:5432"
+    # networks:
+    #   - construction
+
+
+  adminer:
+    # container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    # networks:
+    #   - construction

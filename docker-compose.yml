@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  constructionreact:
+    image: ${DOCKER_REGISTRY-}constructionreact
+    build:
+      context: .
+      dockerfile: ConstructionReact/Dockerfile

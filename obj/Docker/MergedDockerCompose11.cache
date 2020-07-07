@@ -1,0 +1,58 @@
+services:
+  adminer:
+    image: adminer
+    networks:
+      constructions: {}
+    ports:
+    - published: 8080
+      target: 8080
+    restart: always
+  constructionreact:
+    build:
+      context: C:\Users\User\Documents\Repositorys\ConstructionReactWebServer
+      dockerfile: ConstructionReact/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ConstructionReact
+      target: base
+    container_name: ConstructionReact
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: constructionreact:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/ConstructionReact.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      constructions: {}
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\User\Documents\Repositorys\ConstructionReactWebServer\ConstructionReact:/app:rw
+    - C:\Users\User\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\User\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\User\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\User\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\User\Documents\Repositorys\ConstructionReactWebServer:/src:rw
+  db:
+    environment:
+      POSTGRES_PASSWORD: example
+    image: postgres
+    networks:
+      constructions: {}
+    ports:
+    - published: 5432
+      target: 5432
+    restart: always
+version: '3.4'

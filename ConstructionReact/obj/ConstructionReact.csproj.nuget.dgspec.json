@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\Web\\Backend\\ConstructionReact\\ConstructionReact\\ConstructionReact.csproj": {}
+    "C:\\Users\\User\\Documents\\Repositorys\\ConstructionReactWebServer\\ConstructionReact\\ConstructionReact.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\Web\\Backend\\ConstructionReact\\ConstructionReact\\ConstructionReact.csproj": {
+    "C:\\Users\\User\\Documents\\Repositorys\\ConstructionReactWebServer\\ConstructionReact\\ConstructionReact.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\Web\\Backend\\ConstructionReact\\ConstructionReact\\ConstructionReact.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Repositorys\\ConstructionReactWebServer\\ConstructionReact\\ConstructionReact.csproj",
         "projectName": "ConstructionReact",
-        "projectPath": "C:\\Users\\User\\Documents\\Web\\Backend\\ConstructionReact\\ConstructionReact\\ConstructionReact.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\Repositorys\\ConstructionReactWebServer\\ConstructionReact\\ConstructionReact.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\Web\\Backend\\ConstructionReact\\ConstructionReact\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Repositorys\\ConstructionReactWebServer\\ConstructionReact\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -50,6 +50,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [

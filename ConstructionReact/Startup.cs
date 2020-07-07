@@ -20,9 +20,10 @@ namespace ConstructionReact
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = "Server=(localdb)\\mssqllocaldb;Database=machine;Trusted_Connection=True;";
+            string connection = "Host=172.22.0.2;Port=5432;Database=machines;Username=postgres;Password=example";
+
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(connection));
+                options.UseNpgsql(connection));
             services.AddControllersWithViews();
         }
 

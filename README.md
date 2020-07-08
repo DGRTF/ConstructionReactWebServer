@@ -1,8 +1,8 @@
 ## `Web-приложение учёта оборудования`
 Реализут CRUD зданий, находящихся в ней комнат и оборудования.
 Сделано согласно ТЗ описанному ниже.
-Frontend-часть [https://github.com/dgrtf/React-construction]
-Docker [https://hub.docker.com/r/dgrtf/constructionreact]
+[Frontend-часть](https://github.com/dgrtf/React-construction)
+[Docker](https://hub.docker.com/r/dgrtf/constructionreact)
 
 ### `Техническое задание:`
 

@@ -50,9 +50,9 @@ npm start
 ### `Используемые технологии`
 
 #### `Frontend:`
--React
--redux
--redux-thunk
+-[React](https://ru.react.js.org/)
+-[redux](https://redux.js.org/)
+-[redux-thunk](https://github.com/reduxjs/redux-thunk)
 
 #### `Bd:`
--PosgreSQL
+-[PosgreSQL](https://hub.docker.com/_/postgres/)

@@ -29,7 +29,7 @@
 Можно использовать контролы сторонних библиотек Angular / ReactJS.
 Данные рекомендуется хранить в БД MS SQL Server.
 
-### `Развёртывание (Linux)`
+### `Развернуть приложение (Linux)`
 [Установите Docker Engine](https://docs.docker.com/engine/install/)
 [Установите Docker Compose](https://docs.docker.com/compose/install/)
 #### `Загрузите данные с репозитория:`

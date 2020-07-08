@@ -55,4 +55,4 @@ npm start
 -[redux-thunk](https://github.com/reduxjs/redux-thunk)
 
 #### `Bd:`
--[PosgreSQL](https://hub.docker.com/_/postgres/)
+-[PostgreSQL(Docker)](https://hub.docker.com/_/postgres/)
